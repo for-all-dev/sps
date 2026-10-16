@@ -1,121 +1,65 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
+import { episodes, feeds } from './episodes'
+import { ProofPanel } from './ProofPanel'
 import './App.css'
 
+const fmt = new Intl.DateTimeFormat('en', { dateStyle: 'medium' })
+
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+    <main>
+      <header className="masthead">
+        <h1>
+          Secure
+          <br />
+          Program
+          <br />
+          Synthesis
+        </h1>
+        <p className="tagline">Shoptalk in extremely reliable vibecoding</p>
+      </header>
+
+      <ProofPanel />
+
+      <section aria-labelledby="eps">
+        <h2 id="eps">Episodes</h2>
+        {episodes.length === 0 ? (
+          <p className="empty">First episode soon.</p>
+        ) : (
+          <ol className="episodes">
+            {episodes.map((ep) => (
+              <li key={ep.number}>
+                <a href={ep.url}>
+                  <span className="ep-n">{ep.number}</span>
+                  <span className="ep-title">
+                    {ep.title}
+                    {ep.guests && <span className="ep-guests">with {ep.guests}</span>}
+                  </span>
+                  <time dateTime={ep.date}>{fmt.format(new Date(ep.date))}</time>
+                </a>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
+      <section aria-labelledby="sub">
+        <h2 id="sub">Listen</h2>
+        <ul className="feeds">
+          {feeds.map((f) => (
+            <li key={f.label}>
+              <a href={f.href}>{f.label}</a>
             </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <footer>
+        <p className="motto">DECIDABILITY IS FOR COWARDS</p>
+        <p className="credit">
+          presented by <a href="https://for-all.dev">Forall R&amp;D</a>
+        </p>
+      </footer>
+    </main>
   )
 }
 
