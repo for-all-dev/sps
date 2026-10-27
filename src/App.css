@@ -4,6 +4,28 @@ main {
   padding: clamp(3rem, 10vw, 7rem) 1rem 6rem;
 }
 
+/* Top bar */
+
+.topbar {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topbar a {
+  color: var(--pen);
+  font: 500 0.95rem/1.2 var(--display);
+  font-stretch: 125%;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.topbar a:hover {
+  text-decoration-thickness: 2px;
+}
+
 /* Masthead */
 
 .masthead h1 {
