@@ -8,6 +8,12 @@ function App() {
   return (
     <>
       <nav className="topbar">
+        <a href="/" className="logo">
+          <picture>
+            <source srcSet="/sps-logo-dark.png" media="(prefers-color-scheme: dark)" />
+            <img src="/sps-logo.png" alt="Secure Program Synthesis" />
+          </picture>
+        </a>
         <a href="https://gc.secureprogramsynthesis.org/join/admyi527lr6vosdvz4vyn2bw/">
           Join groupchat
         </a>
@@ -62,7 +68,9 @@ function App() {
         <footer>
           <p className="motto">DECIDABILITY IS FOR COWARDS</p>
           <p className="credit">
-            presented by <a href="https://for-all.dev">Forall R&amp;D</a>
+            Presented by <a href="https://for-all.dev">Forall R&amp;D</a>
+            <br />
+            Contact at <a href="mailto:hello@for-all.dev">hello@for-all.dev</a>
           </p>
         </footer>
       </main>

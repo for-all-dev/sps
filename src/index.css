@@ -10,7 +10,7 @@
   --panel-dim: #7f8c86;
 
   --display: 'Archivo', system-ui, sans-serif;
-  --serif: 'Source Serif 4', Georgia, serif;
+  --serif: 'Archivo', system-ui, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, monospace;
 
   color-scheme: light dark;
@@ -44,7 +44,8 @@ body {
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 24px 24px;
   color: var(--ink);
-  font: 400 1.125rem/1.6 var(--serif);
+  font: 400 0.975rem/1.6 var(--serif);
+  font-stretch: 125%;
   -webkit-font-smoothing: antialiased;
 }
 
